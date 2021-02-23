@@ -17,19 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello/{msg?}', function($msg='no message') {
-    {
-$html = <<<EOF
-<html>
-<head>
-<title>Hello</title>
-</head>
-<body>
-<h1>Hello!!!</h1>
-<p>{$msg}</p>
-</body>
-</html>
-EOF;
-    return $html;
-    }
-});
+Route::get('hello', 'HelloController@index'); // HelloController の index アクションを呼び出す
