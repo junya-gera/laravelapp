@@ -9,6 +9,11 @@
 <body>
     <h1>Blade/Index</h1>
     <p>{{$msg}}</p>
-    <p>{{$name}}</p>
+    <form method="POST" action="/hello">
+        <!-- CSRF 対策のヘルパ関数  -->
+        {{ csrf_field() }}
+        <input type="text" name="msg">
+        <input type="submit">
+    </form>
 </body>
 </html>

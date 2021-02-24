@@ -17,4 +17,13 @@ class HelloController extends Controller
         ];
         return view('hello.index', $data);
     }
+
+    public function post(Request $request) {
+        // テンプレートの指定した name 属性を $request-> するとフォームで送信された値を取得できる
+        $msg = $request->msg;
+        $data = [
+            'msg' => 'こんにちは、' . $msg . 'さん！',
+        ];
+        return view('hello.index', $data);
+    }
 }
