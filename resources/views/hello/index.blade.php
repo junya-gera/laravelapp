@@ -8,7 +8,11 @@
 </head>
 <body>
     <h1>Blade/Index</h1>
-    <p>{{$msg}}</p>
+    @if ($msg != '')
+    <p>こんにちは、 {{$msg}}さん。</p>
+    @else
+    <p>名前を入力してください。</p>
+    @endif
     <form method="POST" action="/hello">
         <!-- CSRF 対策のヘルパ関数  -->
         {{ csrf_field() }}

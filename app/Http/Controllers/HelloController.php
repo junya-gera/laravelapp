@@ -12,8 +12,7 @@ class HelloController extends Controller
 
         // 第2引数の配列の key がテンプレートで使用できる変数名、 value がその値
         $data = [
-            'msg' => 'これは Blade を利用したサンプルです',
-            'name' => 'おこちゃん',
+            'msg' => '',
         ];
         return view('hello.index', $data);
     }
@@ -22,7 +21,7 @@ class HelloController extends Controller
         // テンプレートの指定した name 属性を $request-> するとフォームで送信された値を取得できる
         $msg = $request->msg;
         $data = [
-            'msg' => 'こんにちは、' . $msg . 'さん！',
+            'msg' => $msg,
         ];
         return view('hello.index', $data);
     }
