@@ -7,17 +7,22 @@
     <title>Hello/Index</title>
 </head>
 <body>
-    <h1>Blade/Index</h1>
-    @if ($msg != '')
-    <p>こんにちは、 {{$msg}}さん。</p>
-    @else
-    <p>名前を入力してください。</p>
-    @endif
-    <form method="POST" action="/hello">
-        <!-- CSRF 対策のヘルパ関数  -->
-        {{ csrf_field() }}
-        <input type="text" name="msg">
-        <input type="submit">
-    </form>
+    @extends('layouts.helloapp')
+
+    @section('title', 'index')
+
+    @section('menubar')
+        @parent
+        インデックスページ
+    @endsection
+
+    @section('content')
+        <p>ここが本文のコンテンツです。</p>
+        <p>必要なだけ記述できます。</p>
+    @endsection
+
+    @section('footer')
+        copyright 2021 junya.
+    @endsection
 </body>
 </html>
