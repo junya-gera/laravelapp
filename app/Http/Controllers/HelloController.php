@@ -8,25 +8,21 @@ use Illuminate\Http\Response; // Response を使える状態にしている
 class HelloController extends Controller
 {
 
-    public function index(Request $request, Response $response) { // アクションメソッド
-        $html = <<<EOF
-<html>
-<head>
-<title>Hello/index</title>
-</head>
-<body>
-<h1>Hello</h1>
-<h3>Request</h3>
-<pre>{$request}</pre>
-<h3>Response</h3>
-<pre>{$response}</pre>
+    public function index() { // アクションメソッド
 
-</body>
-</html>
-EOF;
-        $response->setContent($html);
-        return $response;
+        // 第2引数の配列の key がテンプレートで使用できる変数名、 value がその値
+        $data = [
+            'msg' => '',
+        ];
+        return view('hello.index', $data);
     }
 
-
+    public function post(Request $request) {
+        // テンプレートの指定した name 属性を $request-> するとフォームで送信された値を取得できる
+        $msg = $request->msg;
+        $data = [
+            'msg' => $msg,
+        ];
+        return view('hello.index', $data);
+    }
 }
