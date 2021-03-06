@@ -24,17 +24,19 @@
         <table>
         <form action="/hello" method="post">
             {{ csrf_field() }}
-            @if ($errors->has('name'))  <!-- name のバリデーションエラーが発生しているかをチェック -->
+            <!-- name のバリデーションエラーが発生しているかをチェック -->
+            @if ($errors->has('name'))
+            <!-- name の最初のエラーメッセージを呼び出す -->
             <tr><th>ERROR</th><td>{{ $errors->first('name') }}</td></tr>
             @endif
             <tr><th>name: </th><td><input type="text" name="name" value="{{ old('name')}}"></td></tr>
             {{ csrf_field() }}
-            @if ($errors->has('mail'))  <!-- mail のバリデーションエラーが発生しているかをチェック -->
+            @if ($errors->has('mail'))
             <tr><th>ERROR</th><td>{{ $errors->first('mail') }}</td></tr>
             @endif
             <tr><th>mail: </th><td><input type="text" name="mail" value="{{ old('mail')}}"></td></tr>
             {{ csrf_field() }}
-            @if ($errors->has('age'))  <!-- age のバリデーションエラーが発生しているかをチェック -->
+            @if ($errors->has('age'))
             <tr><th>ERROR</th><td>{{ $errors->first('age') }}</td></tr>
             @endif
             <tr><th>age: </th><td><input type="text" name="age" value="{{ old('age')}}"></td></tr>
